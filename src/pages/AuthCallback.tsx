@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
 const AuthCallback = () => {
   const navigate = useNavigate();
 
+  console.log("process.env.REACT_APP_BACKEND_URL",process.env.REACT_APP_BACKEND_URL)
   useEffect(() => {
     const fetchAccessToken = async () => {
       const params = new URLSearchParams(window.location.search);
@@ -13,7 +15,7 @@ const AuthCallback = () => {
       if (!code) return navigate("/");
 
       try {
-        const response = await axios.post("http://localhost:5001/auth/facebook", { code });
+        const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/facebook`, { code });
         localStorage.setItem("token", response.data.token);
         navigate("/");
       } catch {

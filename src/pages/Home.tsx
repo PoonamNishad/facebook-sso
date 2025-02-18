@@ -11,7 +11,7 @@ const Home = () => {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get("http://localhost:5001/user/profile", { headers: { Authorization: `Bearer ${token}` } })
+        .get(`${process.env.REACT_BACKEND_URL}/user/profile`, { headers: { Authorization: `Bearer ${token}` } })
         .then((res) => setUser(res.data.user))
         .catch(() => setUser(null));
     }
