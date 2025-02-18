@@ -1,7 +1,7 @@
 const FacebookLogin = () => {
   const handleLogin = () => {
-    const appId = "2436437036715249";
-    const redirectUri = "http://localhost:3000/auth/facebook/callback";
+    const appId = process.env.REACT_APP_FACEBOOK_APP_ID;
+    const redirectUri = `${process.env.REACT_APP_FRONTEND_URL}/auth/facebook/callback`;
 
     window.location.href = `https://www.facebook.com/v17.0/dialog/oauth?client_id=${appId}&redirect_uri=${redirectUri}&scope=email,public_profile`;
   };
