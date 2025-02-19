@@ -24,8 +24,8 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <Card className="w-96 shadow-lg rounded-lg">
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <Card style={{width:'50%'}}>
         <Title level={3} className="text-center">Login</Title>
         <Form layout="vertical" onFinish={handleLogin}>
           <Form.Item
