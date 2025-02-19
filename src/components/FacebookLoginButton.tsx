@@ -1,4 +1,7 @@
-const FacebookLogin = () => {
+import Button from "antd/es/button";
+import { FacebookFilled } from "@ant-design/icons";
+
+const FacebookLoginButton = () => {
   const handleLogin = () => {
     const appId = process.env.REACT_APP_FACEBOOK_APP_ID;
     const redirectUri = `${process.env.REACT_APP_FRONTEND_URL}/auth/facebook/callback`;
@@ -8,11 +11,16 @@ const FacebookLogin = () => {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <button onClick={handleLogin} className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg">
-        Login with Facebook
-      </button>
+      <Button 
+          type="default" 
+          onClick={handleLogin}
+          icon={<FacebookFilled />} 
+          className="w-full bg-blue-600 text-white hover:bg-blue-700"
+        >
+          Login with Facebook
+        </Button>
     </div>
   );
 };
 
-export default FacebookLogin;
+export default FacebookLoginButton;

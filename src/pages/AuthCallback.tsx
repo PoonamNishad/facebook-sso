@@ -17,6 +17,8 @@ const AuthCallback = () => {
       try {
         const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/facebook`, { code });
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("fbToken", response.data.fbToken);
+
         navigate("/");
       } catch {
         navigate("/");
