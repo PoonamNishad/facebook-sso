@@ -8,7 +8,11 @@ const API_URL = process.env.REACT_BACKEND_URL;
 const RegisterForm = () => {
   const navigate = useNavigate();
 
-  const [registerForm, setRegisterForm] = useState({ name: "", email: "", password: "" });
+  const [registerForm, setRegisterForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,34 +25,44 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <Card className="w-96 shadow-lg rounded-lg">
-        <Title level={3} className="text-center">Register</Title>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <Card style={{ width: "50%" }}>
+        <Title level={3} className="text-center">
+          Register
+        </Title>
         <Form layout="vertical" onFinish={handleRegister}>
-          <Form.Item 
-            label="Full Name" 
-            name="fullName" 
-            rules={[{ required: true, message: "Please enter your full name!" }]}
+          <Form.Item
+            label="Full Name"
+            name="fullName"
+            rules={[
+              { required: true, message: "Please enter your full name!" },
+            ]}
           >
             <Input placeholder="Enter your full name" />
           </Form.Item>
-          <Form.Item 
-            label="Email" 
-            name="email" 
-            rules={[{ required: true, message: "Please enter your email!" }, { type: "email", message: "Invalid email!" }]}
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[
+              { required: true, message: "Please enter your email!" },
+              { type: "email", message: "Invalid email!" },
+            ]}
           >
             <Input placeholder="Enter your email" />
           </Form.Item>
-          <Form.Item 
-            label="Password" 
-            name="password" 
-            rules={[{ required: true, message: "Please enter your password!" }, { min: 6, message: "Password must be at least 6 characters!" }]}
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[
+              { required: true, message: "Please enter your password!" },
+              { min: 6, message: "Password must be at least 6 characters!" },
+            ]}
           >
             <Input.Password placeholder="Enter your password" />
           </Form.Item>
-          <Form.Item 
-            label="Confirm Password" 
-            name="confirmPassword" 
+          <Form.Item
+            label="Confirm Password"
+            name="confirmPassword"
             dependencies={["password"]}
             rules={[
               { required: true, message: "Please confirm your password!" },
@@ -73,7 +87,10 @@ const RegisterForm = () => {
         </Form>
 
         <div className="text-center mt-4">
-          <Text>Already have an account? <a onClick={() => navigate("/")}>Login here</a></Text>
+          <Text>
+            Already have an account?{" "}
+            <a onClick={() => navigate("/")}>Login here</a>
+          </Text>
         </div>
       </Card>
     </div>

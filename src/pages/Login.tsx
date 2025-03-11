@@ -1,6 +1,4 @@
-import FacebookLoginButton from "../components/FacebookLoginButton";
 import LoginForm from "../components/Login";
-import RegisterForm from "../components/Register";
 
 const LoginPage = () => {
   return (
